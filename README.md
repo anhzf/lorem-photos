@@ -18,12 +18,12 @@ https://github.com/anhzf/lorem-photos
 - [NPM](https://www.npmjs.com/) (sudah terinstall ketika menginstall NodeJS)
 - [Quasar CLI](https://quasar.dev/quasar-cli/installation) (opsional)
 
-## Install dependency/pacakage yang diperlukan dengan menggunakan command berikut pada Terminal
+## 1. Install dependency/pacakage yang diperlukan dengan menggunakan command berikut pada Terminal
 ```bash
 npm install
 ```
 
-## Menjalankan aplikasi
+## 2. Menjalankan aplikasi
 
 ### Production Mode
 ```bash
