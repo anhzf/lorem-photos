@@ -2,6 +2,8 @@
 
 Online Repository for your Design needs
 
+_Data and image in project is provided by https://fakerapi.it/en_
+
 ## Built using:
 [![Quasar Framework logo](https://cdn.quasar.dev/logo/svg/quasar-logo-full-inline.svg)](http://quasar.dev/)
 
