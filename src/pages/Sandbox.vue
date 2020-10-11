@@ -8,11 +8,17 @@
             :key="i"
             :src="randImg"
         />
+
+        <image-modal
+            v-model="modal"
+            v-bind="detail"
+        />
     </q-page>
 </template>
 
 <script>
 import ImageCard from 'components/ImageCard';
+import ImageModal from 'components/ImageModal';
 import { getRandomPhoto/* , getRandomPhotoFaker */ } from 'src/services/photo';
 
 export default {
@@ -21,7 +27,18 @@ export default {
     data() {
         return {
             randImg: '',
+
+            modal: true,
         };
+    },
+
+    computed: {
+        detail() {
+            return {
+                src: this.randImg,
+                title: 'Gambar Apik',
+            };
+        },
     },
 
     async mounted() {
@@ -30,7 +47,7 @@ export default {
     },
 
     components: {
-        ImageCard,
+        ImageCard, ImageModal,
     },
 };
 </script>

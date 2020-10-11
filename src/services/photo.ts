@@ -75,6 +75,7 @@ export async function getRandomPhotoFaker(
     url.searchParams.set('_width', String(imgOpt.width));
     url.searchParams.set('_height', String(imgOpt.height));
     url.searchParams.set('_quantity', String(qty));
+    url.searchParams.set('_type', 'people');
 
     const res = await apiJsonWrapper<resCollection>(url.toString());
 

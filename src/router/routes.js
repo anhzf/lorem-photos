@@ -4,10 +4,26 @@ const routes = [
         component: () => import('layouts/MainLayout'),
         children: [
             {
-                path: '', component: () => import('pages/Index'),
+                path: '',
+                name: 'PageIndex',
+                component: () => import('pages/Index'),
             },
             {
-                path: '/sandbox', component: () => import('pages/Sandbox'),
+                path: '/sandbox',
+                name: 'Sandbox',
+                component: () => import('pages/Sandbox'),
+            },
+        ],
+    },
+
+    {
+        path: '/cart',
+        component: () => import('layouts/WithNavLayout'),
+        children: [
+            {
+                path: '',
+                name: 'PageCart',
+                component: () => import('pages/Cart'),
             },
         ],
     },
