@@ -1,26 +1,47 @@
-# Lorem Photos (lorem-photos)
+# Lorem Photos
 
 Online Repository for your Design needs
 
-## Install the dependencies
+## Built using:
+[![Quasar Framework logo](https://cdn.quasar.dev/logo/svg/quasar-logo-full-inline.svg)](http://quasar.dev/)
+
+## Live Demo
+https://lorem-photos.web.app/
+
+## Repository Link
+https://github.com/anhzf/lorem-photos
+
+# Quick Start
+
+## Prerequisites
+- [NodeJS](https://nodejs.org/en) (Saya menggunakan v12)
+- [NPM](https://www.npmjs.com/) (sudah terinstall ketika menginstall NodeJS)
+- [Quasar CLI](https://quasar.dev/quasar-cli/installation) (opsional)
+
+## Install dependency/pacakage yang diperlukan dengan menggunakan command berikut pada Terminal
 ```bash
 npm install
 ```
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
+## Menjalankan aplikasi
+
+### Production Mode
 ```bash
-quasar dev
+npm run build
+```
+atau menggunakan command berikut jika menggunakan Quasar CLI
+```bash
+quasar b
 ```
 
-### Lint the files
+### Development Mode
+
 ```bash
-npm run lint
+npm run dev
+```
+atau menggunakan command berikut jika menggunakan Quasar CLI
+```bash
+quasar d
 ```
 
-### Build the app for production
-```bash
-quasar build
-```
 
-### Customize the configuration
-See [Configuring quasar.conf.js](https://quasar.dev/quasar-cli/quasar-conf-js).
