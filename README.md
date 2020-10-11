@@ -1,4 +1,4 @@
-# Lorem Photos
+# Lorem Photos (Unfinished Project)
 
 Online Repository for your Design needs
 
