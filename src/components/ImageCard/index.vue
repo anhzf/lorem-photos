@@ -1,5 +1,8 @@
 <template>
-    <div class="img-card">
+    <div
+        class="img-card"
+        @click="navigate"
+    >
         <q-img :src="url" />
 
         <div class="img-card__description__overlay" />
@@ -23,7 +26,8 @@
                 rounded
                 color="black"
                 text-color="white"
-                @click="$emit('add-to-cart', id)"
+                ref="addToCartBtn"
+                @click.stop="$emit('add-to-cart', id)"
             >
                 <small>Add to Cart</small>
                 <q-tooltip>add to cart</q-tooltip>
@@ -33,9 +37,13 @@
         <div class="img-card__actions" />
 
         <span
-            v-if="pro"
             class="img-card__label text-caption"
+            v-if="pro"
         >PROMO</span>
+
+        <q-tooltip content-class="text-body2">
+            Click to see detail
+        </q-tooltip>
     </div>
 </template>
 
@@ -70,6 +78,18 @@ export default {
         pro: {
             type: Boolean,
             default: false,
+        },
+
+        to: {
+            type: [String, Object],
+            default: null,
+        },
+    },
+
+    methods: {
+        navigate() {
+            if (this.to) return this.$router.push(this.to);
+            return false;
         },
     },
 };
