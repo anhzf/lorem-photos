@@ -1,0 +1,138 @@
+.img-card {
+    $_comp: &;
+    cursor: pointer;
+    position: relative;
+    box-shadow: $shadow-4;
+    width: 50%;
+    height: 60vh;
+    min-width: 300px;
+    max-width: 345px;
+    border-radius: 20px 20px 35px 35px;
+    transition: 0.3s ease;
+    &:hover {
+        box-shadow: $shadow-12;
+
+        #{$_comp}__description {
+            transform: translateY(-35vh);
+
+            &__overlay {
+                height: 100%;
+            }
+
+            &__title {
+                font-size: map-get($h5, size);
+            }
+
+            &__price {
+                font-size: map-get($body1, size);
+            }
+        }
+
+        #{$_comp}__add-to-cart {
+            &__btn {
+                transform: scale(1);
+            }
+        }
+    }
+
+    &__label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 0.4em 1em;
+        background-color: #ffdd40;
+        border-radius: 20px 0 20px 0;
+    }
+
+    &__description {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 45%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        justify-content: center;
+        border-radius: 35px 35px;
+        align-items: center;
+        transition: 0.2s ease;
+        text-align: center;
+
+        &__overlay {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 45%;
+            background: linear-gradient(
+                180deg,
+                rgba(0, 0, 0, 0) 0%,
+                rgba(0, 0, 0, 0.5) 58.33%,
+                rgba(0, 0, 0, 0.55) 100%
+            );
+            border-radius: 35px 35px;
+            transition: 0.2s ease;
+            will-change: height;
+        }
+
+        &__title {
+            margin: 0;
+            line-height: map-get($h6, line-height);
+            font-family: $typography-font-family;
+            font-size: map-get($h6, size);
+            font-weight: map-get($h6, weight);
+            color: #fff;
+            letter-spacing: map-get($h6, letter-spacing);
+            transition: 0.2s ease;
+            will-change: font-size;
+        }
+
+        &__author {
+            color: #fff;
+        }
+
+        &__price {
+            padding: 0.1em 1em;
+            color: #333;
+            font-size: map-get($body2, size);
+            background-color: #fff;
+            border-radius: 1em;
+            box-shadow: $shadow-8;
+            transition: 0.2s ease;
+            will-change: font-size;
+        }
+    }
+
+    &__add-to-cart {
+        &__container {
+            position: absolute;
+            top: 50%;
+            bottom: 50%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__btn {
+            transform: scale(0);
+            transition: 0.3s ease;
+        }
+    }
+
+    &__actions {
+        position: absolute;
+        top: 50%;
+        bottom: 50%;
+        width: 100%;
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .q-img {
+        height: 100%;
+        border-radius: inherit;
+    }
+}
