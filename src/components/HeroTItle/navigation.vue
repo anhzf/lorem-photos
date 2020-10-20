@@ -12,14 +12,20 @@
                 floating
                 color="info"
             >
-                {{ Math.round(Math.random() * 10) }}
+                {{ cartTotal }}
             </q-badge>
         </q-btn>
     </nav>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
     name: 'HeroTitleNavigation',
+
+    computed: {
+        ...mapGetters('user', ['cartTotal']),
+    },
 };
 </script>

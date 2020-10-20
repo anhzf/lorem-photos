@@ -1,8 +1,8 @@
 <template>
     <q-page class="column flex-start">
         <hero-title
-            title="Lorem Distro"
-            subtitle="Officially Lorem Distro Webstore"
+            title="Lorem.photos"
+            subtitle="Online Repository for your Design needs"
         />
 
         <section
@@ -17,18 +17,11 @@
                 @load="collectMore"
                 :offset="600"
             >
-                <!-- <image-card
-                    v-for="i in collectionLength"
-                    :key="i"
-                    :src="imgExample"
-                    :pro="Boolean(Math.round(Math.random()))"
-                /> -->
                 <image-card
-                    v-for="(item, index) in collections"
-                    :key="index"
+                    v-for="item in collections"
+                    :key="item.uid"
                     v-bind="item"
-                    :pro="Boolean(Math.round(Math.random()))"
-                    :price="Math.round(Math.random() * 100)"
+                    @add-to-cart="addCart"
                 />
             </q-infinite-scroll>
         </section>
@@ -38,39 +31,47 @@
 <script>
 import HeroTitle from 'components/HeroTItle';
 import ImageCard from 'components/ImageCard';
-import { /* getRandomPhoto, */ getRandomPhotoFaker } from 'src/services/photo';
+import { getRandomPhoto } from 'src/services/photo';
+import { randNumber } from 'src/utils';
+import cartService from 'src/services/cart';
+import { uid } from 'quasar';
 
 export default {
     name: 'PageIndex',
 
     data() {
         return {
-            imgExample: '',
-            collectionLength: 10,
             collections: [],
             offset: (document.querySelector('html').clientHeight - 200),
         };
     },
 
     methods: {
-        // collectMore(index, done) {
-        //     this.collectionLength += 10;
-        //     done();
-        // },
-        async collectMore(index, done) {
-            const collected = await getRandomPhotoFaker();
+        collectMore(index, done) {
+            this.collectionFaker()
+                .then((collected) => {
+                    const collections = [...Array(10)].map(() => collected);
 
-            this.collections.push(...collected);
+                    this.collections.push(...collections);
+                    done();
+                });
+        },
 
-            done();
+        addCart(id) {
+            cartService.addItemToCart({
+                uid: id,
+                amount: randNumber(100),
+            });
+        },
+
+        async collectionFaker() {
+            return {
+                id: uid(),
+                url: await getRandomPhoto(345),
+                pro: Boolean(randNumber()),
+            };
         },
     },
-
-    // async mounted() {
-    //     this.imgExample = await getRandomPhoto(345);
-
-    //     console.log(await getRandomPhotoFaker());
-    // },
 
     components: {
         HeroTitle, ImageCard,

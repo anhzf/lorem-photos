@@ -17,11 +17,9 @@
                             class="hero__content__title"
                             @click="$router.push({name: 'PageIndex'})"
                         >
-                            <!-- Lorem.photos -->
                             {{ title }}
                         </h1>
                         <h2 class="hero__content__subtitle">
-                            <!-- Online Repository for your Design needs -->
                             {{ subtitle }}
                         </h2>
                         <q-card
