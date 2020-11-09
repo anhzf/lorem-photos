@@ -30,7 +30,6 @@
                 @click.stop="$emit('add-to-cart', id)"
             >
                 <small>Add to Cart</small>
-                <q-tooltip>add to cart</q-tooltip>
             </q-btn>
         </div>
 
@@ -40,10 +39,6 @@
             class="img-card__label text-caption"
             v-if="pro"
         >PROMO</span>
-
-        <q-tooltip content-class="text-body2">
-            Click to see detail
-        </q-tooltip>
     </div>
 </template>
 
